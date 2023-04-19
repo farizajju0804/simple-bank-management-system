@@ -2,6 +2,7 @@
 #include<fstream>
 #include<cctype>
 #include<iomanip>
+#include<cstdlib.h>
 using namespace std;
 
 
@@ -24,9 +25,21 @@ public:
 	char rettype() const;
 };
 
+void clear()
+{
+    if(getenv("windir"))
+    {
+        system("cls");
+    }
+    else
+    {
+        system("clear");
+    }
+}
+
 void account::create_account()
 {
-	system("CLS");
+	clear();
 	cout<<"\n\t\t\tEnter the Account No. : ";
 	cin>>acno;
 	cout<<"\n\n\t\t\tEnter the Name of the Account holder : ";
@@ -109,7 +122,7 @@ int main()
 	int num;
 	do
 	{
-	system("CLS");
+	clear();
 	cout<<"\n\n\t\t\t\t======================\n";
 	cout<<"\t\t\t\tBANK MANAGEMENT SYSTEM";
 	cout<<"\n\t\t\t\t======================\n";
@@ -132,17 +145,17 @@ int main()
 			write_account();
 			break;
 		case '2':
-			system("CLS");
+			clear();
 			cout<<"\n\n\t\t\tEnter The account No. : "; cin>>num;
 			deposit_withdraw(num, 1);
 			break;
 		case '3':
-			system("CLS");
+			clear();
 			cout<<"\n\n\t\t\tEnter The account No. : "; cin>>num;
 			deposit_withdraw(num, 2);
 			break;
 		case '4':
-			system("CLS");
+			clear();
 			cout<<"\n\n\t\t\tEnter The account No. : "; cin>>num;
 			display_sp(num);
 			break;
@@ -150,17 +163,17 @@ int main()
 			display_all();
 			break;
 		case '6':
-			system("CLS");
+			clear();
 			cout<<"\n\n\t\t\tEnter The account No. : "; cin>>num;
 			delete_account(num);
 			break;
 		 case '7':
-		 	system("CLS");
+		 	clear();
 			cout<<"\n\n\t\t\tEnter The account No. : "; cin>>num;
 			modify_account(num);
 			break;
 		 case '8':
-		 	system("CLS");
+		 	clear();
 			cout<<"\n\n\t\t\tBrought To You By code-projects.org";
 			break;
 		 default :cout<<"\a";
@@ -272,7 +285,7 @@ void delete_account(int n)
 
 void display_all()
 {
-	system("CLS");
+	clear();
 	account ac;
 	ifstream inFile;
 	inFile.open("account.dat",ios::binary);
